@@ -1,0 +1,26 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+
+jobs:
+  Testing-Process:
+    name: Testing Process
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 15
+      - run: echo "Installing dependencies.." && npm install
+      - run: echo "Running linter..." && npm run lint
+      - run: echo "Running formatters..." && npm run prettier
+      - run: echo "Running tests..." && CI=true npm run test
+      - run: echo "Running buld process..." && npm run build
