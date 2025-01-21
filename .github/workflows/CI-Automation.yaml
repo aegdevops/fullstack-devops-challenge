@@ -3,7 +3,9 @@ name: Continuous Integration
 on:
   pull_request:
     branches:
-      - "main"
+      - "devel"
+      - "prod"
+      - "stage"
 
 permissions:
   contents: read

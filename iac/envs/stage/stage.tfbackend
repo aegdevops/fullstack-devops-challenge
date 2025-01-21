@@ -1,0 +1,4 @@
+
+bucket = "fullstack-devops-challenge-tfstate"
+key    = "stage/tfstate"
+region = "us-west-2"
